@@ -22,4 +22,6 @@ con = dbConnect(MySQL(),
                 host = "sql11.freesqldatabase.com",
                 dbname = "sql11646697")
 summary(con)
+dbWriteTable(con,"trial", DLyon)
 dbListTables(con)
+res = dbGetQuery(con, "SELECT * FROM trial;")
