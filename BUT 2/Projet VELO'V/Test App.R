@@ -84,4 +84,31 @@ server <- function(input, output) {
 shinyApp(ui, server)
 
 write.csv(DLyon, "C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELO'V/Excel.csv", row.names=TRUE)
+install.packages("leaflet")
+install.packages("dplyr")
+library(shiny)
+library(leaflet)
+library(dplyr)
 
+#Script de la carte des stations velo
+# Read the CSV data
+data <- read.csv("C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELO'V/Excel.csv")
+
+ui <- fluidPage(
+  titlePanel("Lyon City Map"),
+  leafletOutput("map")
+)
+
+server <- function(input, output, session) {
+  output$map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addMarkers(
+        data = data,
+        lat = ~`position.lat`,   # Use position.lat column
+        lng = ~`position.lng`    # Use position.lng column
+      )
+  })
+}
+
+shinyApp(ui, server)
