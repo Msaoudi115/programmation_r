@@ -45,7 +45,7 @@ ui <- fluidPage(
 
 # Define server logic for random distribution app ----
 server <- function(input, output) {
-  data <- read.csv("C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELO'V/Excel.csv")
+  data <- read.csv("C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELOV/Excel.csv")
   # Reactive expression to generate the requested distribution ----
   # This is called whenever the inputs change. The output functions
   # defined below then use the value computed from this expression
@@ -83,7 +83,7 @@ server <- function(input, output) {
 # Create Shiny app ----
 shinyApp(ui, server)
 
-write.csv(DLyon, "C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELO'V/Excel.csv", row.names=TRUE)
+write.csv(DLyon, "C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELOV/Excel.csv", row.names=TRUE)
 install.packages("leaflet")
 install.packages("dplyr")
 library(shiny)
@@ -92,7 +92,7 @@ library(dplyr)
 
 #Script de la carte des stations velo
 # Read the CSV data
-data <- read.csv("C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELO'V/Excel.csv")
+data <- read.csv("C:/Users/msaoudi/Documents/GitHub/programmation_r/BUT 2/Projet VELOV/Excel.csv")
 
 ui <- fluidPage(
   titlePanel("Lyon City Map"),
